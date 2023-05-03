@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Task
 
 def index(request):
-    return render(request, 'index.html')
+    tasks = Task.objects.all()
+    return render(request, 'index.html', {'tasks':tasks})
+
+def delete_item(request, id):
+    Task.objects.filter(id=id).delete()
+    return redirect('/')
 
 def add_item(request):
     if request.method == 'POST':
@@ -11,7 +16,6 @@ def add_item(request):
         task.text = request.POST.get('text')
         task.time = 121
         task.save()
-        for i in Task.objects.all():
-            i.info()
+        return redirect('/')
 
     return render(request, 'addItem.html')
