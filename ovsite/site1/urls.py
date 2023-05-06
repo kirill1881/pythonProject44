@@ -5,5 +5,7 @@ urlpatterns = [
     path('', views.index),
     path('addItem/', views.add_item),
     path('delete/<int:id>', views.delete_item),
-    path('edit/<int:id>', views.edit_item)
+    path('edit/<int:id>', views.edit_item),
+    path('arch/<int:id>', views.acrh),
+    path('archive/', views.archive)
 ]

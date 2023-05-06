@@ -144,6 +144,10 @@
       <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold">Добавить задачу</span>
     </a>
+    <a href={{ link }} class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
+      <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold">{{ arch }}</span>
+    </a>
     {% for task in tasks %}
 
     <div class="list-group list-group-flush border-bottom scrollarea">
@@ -156,6 +160,7 @@
       </a>
       <a href="/delete/{{ task.id }}">Удалить задачу</a>
       <p><a href="/edit/{{ task.id }}">Изменить задачу</a></p>
+      <p><a href="/arch/{{ task.id }}">{{ addto }}</a></p>
     </div>
 
     {% endfor %}
